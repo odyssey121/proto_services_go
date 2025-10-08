@@ -1,4 +1,4 @@
-module github.com/odyssey121/proto_services_go/payment
+module github.com/odyssey121/proto_services_go/proto/golang/payments
 
 go 1.24.1
 
