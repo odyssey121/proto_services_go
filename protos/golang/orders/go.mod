@@ -1,4 +1,4 @@
-module github.com/odyssey121/proto_services_go/proto/golang/orders
+module github.com/odyssey121/proto_services_go/protos/golang/orders
 
 go 1.24.1
 
