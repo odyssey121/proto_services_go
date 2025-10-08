@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package payments;
 
-option go_package = "github.com/odyssey121/bank_go/proto_services_go/payments";
+option go_package = "github.com/odyssey121/proto_services_go/protos/golang/payments";
 
 service PaymentService {
     rpc MakePayment (MakePaymentRequest) returns (MakePaymentResponse);

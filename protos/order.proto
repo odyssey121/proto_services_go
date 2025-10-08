@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package orders;
 
-option go_package = "github.com/odyssey121/bank_go/proto_services_go/orders";
+option go_package = "github.com/odyssey121/proto_services_go/protos/golang/orders";
 
 service OrderService {
     rpc PlcaseOrder (PlaceOrderRequest) returns (PlaceOrderResponse);
