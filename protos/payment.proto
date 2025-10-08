@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package payments;
+
+option go_package = "github.com/odyssey121/bank_go/proto_services_go/payments";
+
+service PaymentService {
+    rpc MakePayment (MakePaymentRequest) returns (MakePaymentResponse);
+}
+
+
+message MakePaymentRequest {
+    string user_id = 1;
+    double amount = 2;
+    string currency = 3; 
+    string payment_method = 4;
+}
+
+message MakePaymentResponse {
+    bool success = 1;
+    string uuid = 2;
+    string message = 3;
+}
