@@ -3,7 +3,8 @@ module github.com/odyssey121/proto_services_go/orders
 go 1.24.1
 
 require (
-	github.com/odyssey121/proto_services_go/protos/golang/orders v0.0.0-20251008145900-417a0acc3bda
+	github.com/odyssey121/proto_services_go/protos/golang/orders v0.0.0-20251009082135-abd5ca46afec
+	github.com/odyssey121/proto_services_go/protos/golang/payments v0.0.0-20251009082135-abd5ca46afec
 	google.golang.org/grpc v1.76.0
 )
 

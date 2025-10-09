@@ -14,7 +14,7 @@ import (
 const (
 	responseOk  = "ok"
 	responseErr = "error"
-	serverAddr  = ":50555"
+	ServerAddr  = ":50555"
 )
 
 type PaymentsServiceServer struct {
@@ -29,7 +29,7 @@ func (s *PaymentsServiceServer) MakePayment(ctx context.Context, req *payments.M
 }
 
 func main() {
-	lis, err := net.Listen("tcp", serverAddr)
+	lis, err := net.Listen("tcp", ServerAddr)
 	if err != nil {
 		log.Fatal("Failed to listen: %v", err)
 	}
@@ -38,10 +38,10 @@ func main() {
 
 	payments.RegisterPaymentServiceServer(grpcServer, &PaymentsServiceServer{})
 
-	fmt.Printf("Start gRPC server on %s\n", serverAddr)
+	fmt.Printf("Start gRPC server on %s\n", ServerAddr)
 
 	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("Failed to start gRPC server on %s\n", serverAddr)
+		log.Fatalf("Failed to start gRPC server on %s\n", ServerAddr)
 	}
 
 }

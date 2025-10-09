@@ -11,13 +11,13 @@ service PaymentService {
 
 message MakePaymentRequest {
     string user_id = 1;
-    double amount = 2;
+    uint64 amount = 2;
     string currency = 3; 
     string payment_method = 4;
 }
 
 message MakePaymentResponse {
     bool success = 1;
-    string uuid = 2;
+    string id = 2;
     string message = 3;
 }
