@@ -3,7 +3,6 @@ module github.com/odyssey121/proto_services_go/orders
 go 1.24.1
 
 require (
-	github.com/google/uuid v1.6.0
 	github.com/odyssey121/proto_services_go/protos/golang/orders v0.0.0-20251008145900-417a0acc3bda
 	google.golang.org/grpc v1.76.0
 )
