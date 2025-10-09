@@ -14,5 +14,13 @@ proto-payments:
     protos/payment.proto
 	cd protos/golang/payments && go mod init github.com/odyssey121/proto_services_go/protos/golang/payments && go mod tidy
 
+proto-discounts:
+	mkdir -p protos/golang/discounts
+	rm -rfv protos/golang/discounts/*
+	protoc --proto_path=protos --go_out=protos/golang/discounts --go_opt=paths=source_relative \
+    --go-grpc_out=protos/golang/discounts --go-grpc_opt=paths=source_relative \
+    protos/discount.proto
+	cd protos/golang/discounts && go mod init github.com/odyssey121/proto_services_go/protos/golang/discounts && go mod tidy
+
 # not file in dir
 .PHONY: proto-orders proto-payments
