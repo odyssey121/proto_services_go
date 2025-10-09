@@ -29,7 +29,7 @@ func (s *OrdersServiceServer) PlaceOrder(ctx context.Context, req *orders.PlaceO
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
 
-	conn, err := grpc.NewClient(payments.ServerAddr, opts...)
+	conn, err := grpc.NewClient(":50555", opts...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to payment service: %v", err)
 	}
