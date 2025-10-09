@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: discount.proto
 
-package dicounts
+package discounts
 
 import (
 	context "context"
@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DiscountService_PlaceOrder_FullMethodName = "/discounts.DiscountService/PlaceOrder"
+	DiscountService_MakeDiscount_FullMethodName = "/discounts.DiscountService/MakeDiscount"
 )
 
 // DiscountServiceClient is the client API for DiscountService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DiscountServiceClient interface {
-	PlaceOrder(ctx context.Context, in *MakeDiscountRequest, opts ...grpc.CallOption) (*MakeDiscountResponse, error)
+	MakeDiscount(ctx context.Context, in *MakeDiscountRequest, opts ...grpc.CallOption) (*MakeDiscountResponse, error)
 }
 
 type discountServiceClient struct {
@@ -37,10 +37,10 @@ func NewDiscountServiceClient(cc grpc.ClientConnInterface) DiscountServiceClient
 	return &discountServiceClient{cc}
 }
 
-func (c *discountServiceClient) PlaceOrder(ctx context.Context, in *MakeDiscountRequest, opts ...grpc.CallOption) (*MakeDiscountResponse, error) {
+func (c *discountServiceClient) MakeDiscount(ctx context.Context, in *MakeDiscountRequest, opts ...grpc.CallOption) (*MakeDiscountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MakeDiscountResponse)
-	err := c.cc.Invoke(ctx, DiscountService_PlaceOrder_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DiscountService_MakeDiscount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (c *discountServiceClient) PlaceOrder(ctx context.Context, in *MakeDiscount
 // All implementations must embed UnimplementedDiscountServiceServer
 // for forward compatibility.
 type DiscountServiceServer interface {
-	PlaceOrder(context.Context, *MakeDiscountRequest) (*MakeDiscountResponse, error)
+	MakeDiscount(context.Context, *MakeDiscountRequest) (*MakeDiscountResponse, error)
 	mustEmbedUnimplementedDiscountServiceServer()
 }
 
@@ -62,8 +62,8 @@ type DiscountServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedDiscountServiceServer struct{}
 
-func (UnimplementedDiscountServiceServer) PlaceOrder(context.Context, *MakeDiscountRequest) (*MakeDiscountResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PlaceOrder not implemented")
+func (UnimplementedDiscountServiceServer) MakeDiscount(context.Context, *MakeDiscountRequest) (*MakeDiscountResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MakeDiscount not implemented")
 }
 func (UnimplementedDiscountServiceServer) mustEmbedUnimplementedDiscountServiceServer() {}
 func (UnimplementedDiscountServiceServer) testEmbeddedByValue()                         {}
@@ -86,20 +86,20 @@ func RegisterDiscountServiceServer(s grpc.ServiceRegistrar, srv DiscountServiceS
 	s.RegisterService(&DiscountService_ServiceDesc, srv)
 }
 
-func _DiscountService_PlaceOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DiscountService_MakeDiscount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MakeDiscountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DiscountServiceServer).PlaceOrder(ctx, in)
+		return srv.(DiscountServiceServer).MakeDiscount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DiscountService_PlaceOrder_FullMethodName,
+		FullMethod: DiscountService_MakeDiscount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DiscountServiceServer).PlaceOrder(ctx, req.(*MakeDiscountRequest))
+		return srv.(DiscountServiceServer).MakeDiscount(ctx, req.(*MakeDiscountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -112,8 +112,8 @@ var DiscountService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*DiscountServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "PlaceOrder",
-			Handler:    _DiscountService_PlaceOrder_Handler,
+			MethodName: "MakeDiscount",
+			Handler:    _DiscountService_MakeDiscount_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

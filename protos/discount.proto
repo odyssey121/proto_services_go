@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package discounts;
 
-option go_package = "github.com/odyssey121/proto_services_go/protos/golang/dicounts";
+option go_package = "github.com/odyssey121/proto_services_go/protos/golang/discounts";
 
 service DiscountService {
-    rpc PlaceOrder (MakeDiscountRequest) returns (MakeDiscountResponse);
+    rpc MakeDiscount (MakeDiscountRequest) returns (MakeDiscountResponse);
 }
 
 
