@@ -22,9 +22,9 @@ type PaymentsServiceServer struct {
 }
 
 func (s *PaymentsServiceServer) MakePayment(ctx context.Context, req *payments.MakePaymentRequest) (*payments.MakePaymentResponse, error) {
-	requestID := uuid.New().String()
-	log.Printf("Processing payment for user: %s, amount: %f, requestID: %s", req.UserId, req.Amount, requestID)
-	return &payments.MakePaymentResponse{Success: true, Uuid: requestID, Message: responseOk}, nil
+	id := uuid.New().String()
+	log.Printf("Processing payment for user: %s, amount: %f, requestID: %s", req.UserId, req.Amount, id)
+	return &payments.MakePaymentResponse{Success: true, Id: id, Message: responseOk}, nil
 
 }
 

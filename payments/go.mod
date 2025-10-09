@@ -4,7 +4,7 @@ go 1.24.1
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/odyssey121/proto_services_go/protos/golang/payments v0.0.0-20251008145900-417a0acc3bda
+	github.com/odyssey121/proto_services_go/protos/golang/payments v0.0.0-20251009112005-abb2635d6f89
 	google.golang.org/grpc v1.76.0
 )
 

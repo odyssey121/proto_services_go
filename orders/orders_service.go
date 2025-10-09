@@ -41,7 +41,7 @@ func (s *OrdersServiceServer) PlaceOrder(ctx context.Context, req *orders.PlaceO
 
 	var totalCoast uint64
 	for i := 0; i < len(req.Items); i++ {
-		totalCoast += uint64(req.Items[i].Quantity) * (req.Items[i].Coast * 1000)
+		totalCoast += uint64(req.Items[i].Quantity) * uint64((req.Items[i].Coast * 1000))
 	}
 
 	paymentReq := &payments.MakePaymentRequest{UserId: req.UserId, Amount: totalCoast}
@@ -58,7 +58,7 @@ func (s *OrdersServiceServer) PlaceOrder(ctx context.Context, req *orders.PlaceO
 			Message: fmt.Sprintf("Payment failed, with message: %s, order not created", paymentRes.Message)}, nil
 	}
 
-	return &orders.PlaceOrderResponse{Success: true, OrderId: paymentReq.Id, Message: responseOk}, nil
+	return &orders.PlaceOrderResponse{Success: true, OrderId: paymentRes.Id, Message: responseOk}, nil
 
 }
 
