@@ -3,7 +3,8 @@ module github.com/odyssey121/proto_services_go
 go 1.24.1
 
 require (
-	github.com/odyssey121/proto_services_go/protos/golang/discounts v0.0.4 // indirect
+	github.com/odyssey121/proto_services_go/protos/golang/discounts v0.0.5 // indirect
+	github.com/odyssey121/proto_services_go/protos/golang/orders v0.0.0-20251009142124-d434d05f4d75 // indirect
 	golang.org/x/net v0.42.0 // indirect
 	golang.org/x/sys v0.34.0 // indirect
 	golang.org/x/text v0.27.0 // indirect
