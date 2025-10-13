@@ -7,6 +7,7 @@ import (
 	"net"
 	"time"
 
+	"github.com/odyssey121/proto_services_go/protos/golang/discounts"
 	"github.com/odyssey121/proto_services_go/protos/golang/orders"
 	"github.com/odyssey121/proto_services_go/protos/golang/payments"
 	"google.golang.org/grpc"
@@ -41,8 +42,13 @@ func (s *OrdersServiceServer) PlaceOrder(ctx context.Context, req *orders.PlaceO
 
 	var totalCoast uint64
 	for i := 0; i < len(req.Items); i++ {
-		totalCoast += uint64(req.Items[i].Quantity) * uint64((req.Items[i].Coast * 1000))
+		item := req.Items[i]
+		totalCoast += uint64(item.GetQuantity()) * uint64((item.GetCoast() * 1000))
 	}
+
+	
+
+	discountReq := &discounts.MakeDiscountRequest{UserId: req.UserId, Items: req.Items}
 
 	paymentReq := &payments.MakePaymentRequest{UserId: req.UserId, Amount: totalCoast}
 

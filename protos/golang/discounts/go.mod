@@ -3,6 +3,7 @@ module github.com/odyssey121/proto_services_go/protos/golang/discounts
 go 1.24.1
 
 require (
+	github.com/odyssey121/proto_services_go/protos/golang/orders v0.0.0-20251009142124-d434d05f4d75
 	google.golang.org/grpc v1.76.0
 	google.golang.org/protobuf v1.36.10
 )

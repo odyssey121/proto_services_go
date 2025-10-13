@@ -2,7 +2,10 @@ syntax = "proto3";
 
 package discounts;
 
+import "order.proto";
+
 option go_package = "github.com/odyssey121/proto_services_go/protos/golang/discounts";
+
 
 service DiscountService {
     rpc MakeDiscount (MakeDiscountRequest) returns (MakeDiscountResponse);
@@ -11,15 +14,10 @@ service DiscountService {
 
 message MakeDiscountRequest {
     string user_id = 1;
-    repeated DiscountItem items = 2;
+    repeated orders.OrderItem items = 2;
     string payment_method = 4;
 }
 
-message DiscountItem {
-    string product_id = 1;
-    int32 quantity = 2;
-    uint32 dicount = 3;
-}
 
 message MakeDiscountResponse {
     bool success = 1;
