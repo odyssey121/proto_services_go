@@ -52,6 +52,7 @@ func (s *OrdersServiceServer) PlaceOrder(ctx context.Context, req *orders.PlaceO
 	if err != nil {
 		return nil, fmt.Errorf("failed to make discount: %w", err)
 	}
+	log.Printf("discResp: %v", discResp)
 	//payment logic client
 	paymentConn, err := grpc.NewClient(":50555", opts...)
 	if err != nil {
@@ -68,6 +69,7 @@ func (s *OrdersServiceServer) PlaceOrder(ctx context.Context, req *orders.PlaceO
 	if err != nil {
 		return nil, fmt.Errorf("failed to make payment: %w", err)
 	}
+	log.Printf("paymentRes: %v", paymentRes)
 	// output response logic
 	if !paymentRes.Success {
 		return &orders.PlaceOrderResponse{
